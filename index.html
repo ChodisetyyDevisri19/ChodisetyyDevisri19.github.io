@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Devi Sri | Portfolio</title>
+
+    <meta name="description"
+          content="Devi Sri - Electronics and Communication Engineering student, technology enthusiast and project developer.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* ==============================
+           GLOBAL
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #070714;
+            --bg2: #0d0d20;
+            --card: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.12);
+
+            --purple: #9b5cff;
+            --pink: #ff4fd8;
+            --cyan: #00e5ff;
+            --blue: #4f7cff;
+
+            --text: #ffffff;
+            --muted: #b8b8cf;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(155,92,255,0.15), transparent 30%),
+                radial-gradient(circle at 90% 20%, rgba(0,229,255,0.12), transparent 30%),
+                radial-gradient(circle at 50% 90%, rgba(255,79,216,0.10), transparent 30%),
+                var(--bg);
+
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* ==============================
+           BACKGROUND EFFECTS
+        ============================== */
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.18;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .orb.one {
+            width: 300px;
+            height: 300px;
+            background: var(--purple);
+            top: 10%;
+            left: -120px;
+        }
+
+        .orb.two {
+            width: 280px;
+            height: 280px;
+            background: var(--cyan);
+            right: -100px;
+            top: 45%;
+        }
+
+        .orb.three {
+            width: 250px;
+            height: 250px;
+            background: var(--pink);
+            left: 30%;
+            bottom: -100px;
+        }
+
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+
+            padding: 20px 0;
+
+            background: rgba(7,7,20,0.65);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+
+            background: linear-gradient(
+                90deg,
+                var(--cyan),
+                var(--purple),
+                var(--pink)
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #d9d9e8;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 100px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .tag {
+            display: inline-block;
+
+            padding: 8px 15px;
+
+            border-radius: 30px;
+
+            background: rgba(155,92,255,0.12);
+
+            border: 1px solid rgba(155,92,255,0.35);
+
+            color: #d7c2ff;
+
+            font-size: 13px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+
+            font-size: clamp(48px, 7vw, 82px);
+
+            line-height: 1.05;
+
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--cyan),
+                    var(--purple),
+                    var(--pink)
+                );
+
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 620px;
+
+            color: var(--muted);
+
+            font-size: 18px;
+
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+
+            border-radius: 12px;
+
+            font-weight: 600;
+
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--purple),
+                    var(--pink)
+                );
+
+            box-shadow:
+                0 0 30px rgba(155,92,255,0.25);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.04);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* ==============================
+           HERO CARD
+        ============================== */
+
+        .hero-card {
+            position: relative;
+
+            padding: 35px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.09),
+                    rgba(255,255,255,0.03)
+                );
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.35);
+
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        .profile-circle {
+            width: 150px;
+            height: 150px;
+
+            margin: auto auto 25px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 55px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--purple),
+                    var(--pink),
+                    var(--cyan)
+                );
+
+            box-shadow:
+                0 0 60px rgba(155,92,255,0.4);
+        }
+
+        .hero-card h3 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .hero-card p {
+            text-align: center;
+            color: var(--muted);
+            margin-top: 5px;
+        }
+
+        .mini-stats {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 10px;
+
+            margin-top: 30px;
+        }
+
+        .stat {
+            text-align: center;
+
+            padding: 15px 5px;
+
+            border-radius: 15px;
+
+            background: rgba(255,255,255,0.05);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 20px;
+            color: var(--cyan);
+        }
+
+        .stat span {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+
+        /* ==============================
+           SECTION
+        ============================== */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title span {
+            color: var(--cyan);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-family: 'Space Grotesk', sans-serif;
+
+            font-size: 42px;
+
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+
+        /* ==============================
+           ABOUT
+        ============================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        .glass {
+            padding: 30px;
+
+            border-radius: 22px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .glass h3 {
+            margin-bottom: 15px;
+        }
+
+        .glass p {
+            color: var(--muted);
+        }
+
+
+        /* ==============================
+           SKILLS
+        ============================== */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .skill {
+            padding: 25px 15px;
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,0.04);
+
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+
+            border-color: var(--purple);
+
+            box-shadow:
+                0 15px 40px rgba(155,92,255,0.12);
+        }
+
+        .skill-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .skill h4 {
+            font-size: 15px;
+        }
+
+
+        /* ==============================
+           PROJECTS
+        ============================== */
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .project {
+            position: relative;
+
+            padding: 28px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.07),
+                    rgba(255,255,255,0.025)
+                );
+
+            border: 1px solid var(--border);
+
+            transition: 0.35s;
+
+            overflow: hidden;
+        }
+
+        .project::before {
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            border-radius: 50%;
+
+            background: var(--purple);
+
+            filter: blur(70px);
+
+            opacity: 0;
+
+            transition: 0.3s;
+
+            right: -50px;
+            top: -50px;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+
+            border-color: var(--cyan);
+        }
+
+        .project:hover::before {
+            opacity: 0.35;
+        }
+
+        .project-icon {
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 20px;
+        }
+
+        .tag-small {
+            font-size: 11px;
+
+            padding: 5px 9px;
+
+            border-radius: 20px;
+
+            background: rgba(0,229,255,0.08);
+
+            color: #8ff5ff;
+
+            border: 1px solid rgba(0,229,255,0.18);
+        }
+
+        .project-link {
+            color: var(--cyan);
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        /* ==============================
+           EDUCATION
+        ============================== */
+
+        .timeline {
+            max-width: 750px;
+
+            margin: auto;
+
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            left: 15px;
+
+            top: 0;
+
+            bottom: 0;
+
+            width: 2px;
+
+            background:
+                linear-gradient(
+                    var(--purple),
+                    var(--cyan)
+                );
+        }
+
+        .timeline-item {
+            position: relative;
+
+            padding-left: 55px;
+
+            margin-bottom: 35px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+
+            left: 7px;
+
+            top: 5px;
+
+            width: 18px;
+            height: 18px;
+
+            border-radius: 50%;
+
+            background: var(--cyan);
+
+            box-shadow:
+                0 0 20px var(--cyan);
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+        }
+
+
+        /* ==============================
+           CONTACT
+        ============================== */
+
+        .contact-box {
+            text-align: center;
+
+            padding: 60px 30px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(155,92,255,0.12),
+                    rgba(0,229,255,0.07),
+                    rgba(255,79,216,0.10)
+                );
+
+            border: 1px solid var(--border);
+        }
+
+        .contact-box h2 {
+            font-family: 'Space Grotesk', sans-serif;
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+
+            margin-bottom: 30px;
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            padding: 30px 0;
+
+            text-align: center;
+
+            color: #85859c;
+
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            font-size: 13px;
+        }
+
+
+        /* ==============================
+           ANIMATION
+        ============================== */
+
+        @keyframes floating {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media(max-width: 850px) {
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+        }
+
+        @media(max-width: 500px) {
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Background -->
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+
+
+    <!-- ==========================
+         NAVIGATION
+    =========================== -->
+
+    <nav>
+
+        <div class="container nav-inner">
+
+            <a href="#home" class="logo">
+                DEVI SRI
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#education">Education</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ==========================
+         HERO
+    =========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="container hero-grid">
+
+            <div>
+
+                <span class="tag">
+                    👋 Welcome to my portfolio
+                </span>
+
+                <h1>
+
+                    Hi, I'm
+                    <span class="gradient-text">
+                        Devi Sri
+                    </span>
+
+                </h1>
+
+                <p>
+
+                    An Electronics & Communication Engineering student
+                    passionate about technology, innovation, and turning
+                    ideas into meaningful projects.
+
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#projects"
+                       class="btn btn-primary">
+
+                        🚀 View My Projects
+
+                    </a>
+
+                    <a href="https://github.com/ChodisetyyDevisri19"
+                       target="_blank"
+                       class="btn btn-secondary">
+
+                        GitHub ↗
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="profile-circle">
+                    👩‍💻
+                </div>
+
+                <h3>
+                    Engineering Student
+                </h3>
+
+                <p>
+                    ECE • Technology • Innovation
+                </p>
+
+                <div class="mini-stats">
+
+                    <div class="stat">
+                        <strong>ECE</strong>
+                        <span>Discipline</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>3rd</strong>
+                        <span>Year</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>2027</strong>
+                        <span>Goal</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================
+         ABOUT
+    =========================== -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>ABOUT ME</span>
+
+                <h2>
+                    A little about me
+                </h2>
+
+                <p>
+                    Learning, building and growing through technology.
+                </p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="glass">
+
+                    <h3>
+                        👩‍🎓 Who I Am
+                    </h3>
+
+                    <p>
+
+                        I am a B.Tech Electronics and Communication
+                        Engineering student who enjoys exploring
+                        technology and developing practical projects.
+
+                        I am interested in combining engineering,
+                        software, and intelligent technologies to
+                        create useful solutions.
+
+                    </p>
+
+                </div>
+
+
+                <div class="glass">
+
+                    <h3>
+                        🌱 What I'm Learning
+                    </h3>
+
+                    <p>
+
+                        Currently strengthening my knowledge in
+                        programming, web development, embedded systems,
+                        artificial intelligence, communication
+                        technologies, and software development.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================
+         SKILLS
+    =========================== -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>SKILLS</span>
+
+                <h2>
+                    Technologies I work with
+                </h2>
+
+                <p>
+                    Tools and technologies I'm learning and using.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill">
+                    <div class="skill-icon">🐍</div>
+                    <h4>Python</h4>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-icon">☕</div>
+                    <h4>Java</h4>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-icon">🌐</div>
+                    <h4>HTML & CSS</h4>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-icon">⚡</div>
+                    <h4>JavaScript</h4>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-icon">📡</div>
+                    <h4>Arduino</h4>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-icon">🔌</div>
+                    <h4>ESP32 / ESP8266</h4>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-icon">📊</div>
+                    <h4>MATLAB</h4>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-icon">🗄️</div>
+                    <h4>MySQL / SQLite</h4>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-icon">🧪</div>
+                    <h4>NI LabVIEW</h4>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-icon">🔬</div>
+                    <h4>Multisim</h4>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-icon">⚙️</div>
+                    <h4>Vivado</h4>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-icon">💻</div>
+                    <h4>Eclipse / VS Code</h4>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================
+         PROJECTS
+    =========================== -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>PROJECTS</span>
+
+                <h2>
+                    Things I've built
+                </h2>
+
+                <p>
+                    A few of my academic and personal projects.
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <!-- PROJECT 1 -->
+
+                <div class="project">
+
+                    <div class="project-icon">
+                        📡
+                    </div>
+
+                    <h3>
+                        AI-Based Wi-Fi Signal Mapping
+                    </h3>
+
+                    <p>
+
+                        A system that analyzes Wi-Fi RSSI data,
+                        visualizes signal strength, identifies weak
+                        points, and provides intelligent router
+                        placement recommendations.
+
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag-small">
+                            Python
+                        </span>
+
+                        <span class="tag-small">
+                            Flask
+                        </span>
+
+                        <span class="tag-small">
+                            SQLite
+                        </span>
+
+                        <span class="tag-small">
+                            IoT
+                        </span>
+
+                    </div>
+
+                    <a
+                        href="https://wifi-mapping.onrender.com"
+                        target="_blank"
+                        class="project-link">
+
+                        🌐 Live Dashboard →
+
+                    </a>
+
+                    <br><br>
+
+                    <a
+                        href="https://github.com/ChodisetyyDevisri19/wifi_mapping"
+                        target="_blank"
+                        class="project-link">
+
+                        GitHub Repository →
+
+                    </a>
+
+                </div>
+
+
+                <!-- PROJECT 2 -->
+
+                <div class="project">
+
+                    <div class="project-icon">
+                        🎓
+                    </div>
+
+                    <h3>
+                        Student Performance Prediction
+                    </h3>
+
+                    <p>
+
+                        A Java-based application that processes
+                        academic information and predicts student
+                        performance while storing data in a database.
+
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag-small">
+                            Java
+                        </span>
+
+                        <span class="tag-small">
+                            JDBC
+                        </span>
+
+                        <span class="tag-small">
+                            MySQL
+                        </span>
+
+                    </div>
+
+                    <a
+                        href="https://github.com/ChodisetyyDevisri19"
+                        target="_blank"
+                        class="project-link">
+
+                        GitHub Profile →
+
+                    </a>
+
+                </div>
+
+
+                <!-- PROJECT 3 -->
+
+                <div class="project">
+
+                    <div class="project-icon">
+                        🍎
+                    </div>
+
+                    <h3>
+                        Smart Nutrition Analyzer
+                    </h3>
+
+                    <p>
+
+                        A web-based nutrition application that allows
+                        users to select food items, enter quantities,
+                        calculate nutritional values, and track daily
+                        intake.
+
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag-small">
+                            HTML
+                        </span>
+
+                        <span class="tag-small">
+                            CSS
+                        </span>
+
+                        <span class="tag-small">
+                            JavaScript
+                        </span>
+
+                    </div>
+
+                    <a
+                        href="https://github.com/ChodisetyyDevisri19"
+                        target="_blank"
+                        class="project-link">
+
+                        View Projects →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================
+         EDUCATION
+    =========================== -->
+
+    <section id="education">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>EDUCATION</span>
+
+                <h2>
+                    My academic journey
+                </h2>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <h3>
+                        B.Tech — Electronics & Communication Engineering
+                    </h3>
+
+                    <p>
+                        Currently pursuing my undergraduate degree
+                        and developing knowledge across electronics,
+                        communication, programming and technology.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <h3>
+                        GATE ECE Preparation
+                    </h3>
+
+                    <p>
+                        Preparing to strengthen my understanding of
+                        core Electronics and Communication Engineering
+                        subjects.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================
+         CONTACT
+    =========================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="contact-box">
+
+                <h2>
+                    Let's connect ✨
+                </h2>
+
+                <p>
+                    I'm always interested in learning,
+                    collaborating and exploring new opportunities.
+                </p>
+
+                <div class="buttons"
+                     style="justify-content:center;">
+
+                    <a
+                        href="mailto:YOUR_EMAIL@gmail.com"
+                        class="btn btn-primary">
+
+                        📧 Email Me
+
+                    </a>
+
+                    <a
+                        href="https://github.com/ChodisetyyDevisri19"
+                        target="_blank"
+                        class="btn btn-secondary">
+
+                        🐙 GitHub
+
+                    </a>
+
+                    <!-- Replace this URL with your LinkedIn -->
+
+                    <a
+                        href="YOUR_LINKEDIN_URL"
+                        target="_blank"
+                        class="btn btn-secondary">
+
+                        💼 LinkedIn
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================
+         FOOTER
+    =========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            © 2026 Devi Sri · Built with curiosity & code ✨
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
